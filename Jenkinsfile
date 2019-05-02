@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git credentialsId: 'HenryL39', url: 'https://github.com/HenryL39/Jenkins_pipelines.git'
+                git checkout([$class: 'GitSCM', branches: [[name: '*/first_JenkinsFile']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'HenryL39', url: 'https://github.com/HenryL39/Jenkins_pipelines.git']]])
             }
         }
         
