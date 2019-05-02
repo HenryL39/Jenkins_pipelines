@@ -4,7 +4,7 @@ pipeline {
         Nom="Je suis maven"
     }
     options {
-        timeout(time: 5, unit: 'SECONDS')
+        timeout(time: 50, unit: 'SECONDS')
         retry(3)
     }
     parameters {
