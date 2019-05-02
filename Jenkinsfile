@@ -1,42 +1,29 @@
 pipeline {
     agent any
-    environment {
-        Nom="Je suis maven"
-    }
     options {
-        timeout(time: 50, unit: 'SECONDS')
         retry(3)
     }
     parameters {
-        string(name: 'LOGIN', defaultValue: 'Jason', description: 'Username : ')
-        password(name: 'PASSWORD', defaultValue: 'BOURNE', description: 'password : ')
+    }
+    tools {
+        maven 'maven' 
     }
     stages {
         stage('checkout') {
-            environment {
-                prenomcheckout="Bernard"
-            }
             steps {
                 git credentialsId: 'HenryL39', url: 'https://github.com/HenryL39/Jenkins_pipelines.git'
-                echo "$Nom, $prenomcheckout"
             }
         }
         
         stage('test') {
-            environment {
-                prenom="Claude"
-            }
             steps {
-                echo "$LOGIN, $PASSWORD"
+                mvn test
             }
         }
         
         stage('deploy') {
-            environment {
-                prenom="alfred"
-            }
             steps {
-                echo "$Nom, $prenom"
+                mvn deploy
             }
         }
     }
