@@ -15,13 +15,13 @@ pipeline {
         
         stage('test') {
             steps {
-                mvn -v
+                sh 'mvn -v'
             }
         }
         
         stage('deploy') {
             steps {
-                mvn deploy
+                sh 'mvn deploy'
             }
         }
     }
