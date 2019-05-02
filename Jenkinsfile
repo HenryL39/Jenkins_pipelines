@@ -1,4 +1,5 @@
 pipeline {
+    checkout([$class: 'GitSCM', branches: [[name: 'first_JenkinsFile']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'HenryL39', url: 'https://github.com/HenryL39/Jenkins_pipelines.git']]])
     agent any
     environment {
         Nom="Je suis maven"
