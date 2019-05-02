@@ -3,8 +3,6 @@ pipeline {
     options {
         retry(3)
     }
-    parameters {
-    }
     tools {
         maven 'maven' 
     }
