@@ -5,9 +5,6 @@ pipeline {
     }
 	stages {
 		stage('parrallel') {
-			tools {
-				maven 'maven'
-			}
 			failFast true
   			parallel {
   				stage('Parrallel 1') {
