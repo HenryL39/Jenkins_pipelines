@@ -15,13 +15,13 @@ pipeline {
         
         stage('test') {
             steps {
-                sh 'mvn -v'
+                sh 'mvn -f pom.xml -s settings.xml install'
             }
         }
         
         stage('deploy') {
             steps {
-                sh 'mvn -f pom.xml install'
+                sh 'mvn -f pom.xml -s settings.xml deploy'
             }
         }
     }
