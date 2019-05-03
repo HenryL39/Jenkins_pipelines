@@ -15,7 +15,7 @@ pipeline {
                 stage('Parrallel 2') {
                     steps {
                         echo "Parrallel 2"
-			error 1
+			error '1'
                     }
                 }
   			}
