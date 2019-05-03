@@ -13,9 +13,18 @@ pipeline {
             }
         }
         
+        stage('build') {
+            steps {
+                sh 'mvn -f pom.xml -s settings.xml compile'
+            }
+        }
+        
         stage('test') {
             steps {
-                sh 'mvn -f pom.xml -s settings.xml install'
+                testResult = sh 'mvn -f pom.xml -s settings.xml test'
+                if (!$testResult) {
+                    error "test failed"
+                }
             }
         }
         
