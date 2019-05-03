@@ -21,7 +21,7 @@ pipeline {
         
         stage('test') {
             when {
-                stage('build') == SUCCESS
+                stage 'build' == SUCCESS
             }
             steps {
                 sh 'mvn -f pom.xml -s settings.xml test'
