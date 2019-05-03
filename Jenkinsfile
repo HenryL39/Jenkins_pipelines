@@ -1,6 +1,12 @@
 pipeline {
 	agent any
 	stages {
+		stage ('non seq') {
+			steps {
+				echo "non sequentiel"
+			}
+		}
+		
 		stage('Sequentiels') {
   			stages {
 				stage ('Sequence 1') {
