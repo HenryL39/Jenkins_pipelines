@@ -7,6 +7,9 @@ pipeline {
 			}
 		}
 		
+		when {
+                	branch 'branch1'
+            	}
 		stage('Sequentiels') {
   			stages {
 				stage ('Sequence 1') {
