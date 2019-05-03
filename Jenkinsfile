@@ -20,9 +20,6 @@ pipeline {
         }
         
         stage('test') {
-            when {
-                stage 'build' == SUCCESS
-            }
             steps {
                 sh 'mvn -f pom.xml -s settings.xml test'
             }
@@ -30,6 +27,11 @@ pipeline {
         }
         
         stage('deploy') {
+            when {
+                allOf {
+                    stage 'test' == SUCCESS
+                }           
+            }
             steps {
                 sh 'mvn -f pom.xml -s settings.xml deploy'
             }
