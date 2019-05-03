@@ -15,6 +15,7 @@ pipeline {
                 stage('Parrallel 2') {
                     steps {
                         echo "Parrallel 2"
+			exit 1
                     }
                 }
   			}
