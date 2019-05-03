@@ -3,14 +3,18 @@ pipeline {
 	stages {
 		stage('Sequentiels') {
   			stages {
-    			stage ('Sequence 1') {
-    				echo "Sequence 1"
-    			}
+				stage ('Sequence 1') {
+					steps {
+						echo "Sequence 1"
+					}
+				}
 
-    			stage ('Sequence 2') {
-    				echo "Sequence 2"
-    			}
-  			}
+				stage ('Sequence 2') {
+					steps {
+						echo "Sequence 1"
+					}
+				}
+			}
 		}
 	}
 }
