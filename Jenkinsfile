@@ -20,10 +20,13 @@ pipeline {
         }
         
         stage('test') {
-            def testResult = sh 'mvn -f pom.xml -s settings.xml test'
-            if (testResult == 'Failed') {
-                error "test failed"
+            when {
+                stage('build') == SUCCESS
             }
+            steps {
+                sh 'mvn -f pom.xml -s settings.xml test'
+            }
+            
         }
         
         stage('deploy') {
