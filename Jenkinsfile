@@ -1,8 +1,5 @@
 pipeline {
 	agent any
-	when {
-		branch 'branch1'
-	}
 	stages {
 		stage ('non seq') {
 			steps {
